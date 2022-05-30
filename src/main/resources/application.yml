@@ -1,0 +1,20 @@
+server:
+  port: 8099
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: ${WORDS_DATASOURCE_URL:jdbc:mysql://localhost:3306/WORDS?useUnicode=true&characterEncoding=UTF-8}
+    username: ${WORDS_DATASOURCE_USERNAME:root}
+    password: ${WORDS_DATASOURCE_PASSWORD:root}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      jdbc:
+        time_zone: UTC
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
